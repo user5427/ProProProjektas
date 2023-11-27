@@ -1,1 +1,20 @@
 # ProProProjektas
+
+**Irmanto taisyklės:**
+*  Turite galimybę rengti komandinius (negali būti solo) projektus. Tiems kas nuspręs dalyvauti, gręsia (vidutiniu atveju) +1 balas (iki 2 balų, priklausomai nuo nuopelnų) prie galutinio pažymio (nors vykdome per dirbtuves, tai atskiras su kitomis kurso dalimis nesusijęs klausimas)
+*  Projekto esmė: vartotojas pateikia duomenis C programai -> C programa sukuria internetinį puslapį/svetainę (HTML+CSS) -> ji patalpinama kažkur internete
+  Aukščiau aprašytas variantas yra minimalus, norint galima daryti daugiau, naudoti papildomas priemones, bibliotekas ir t.t. Tai darant svarbu atsižvelgti į tai, kad kodą matyti ir pasileisti turi galėti ir jūsų kolegos. Papildomiems dalykams rekomenduojama gauti mano pritarimą (msg me on FB), o nukrypimai nuo scenarijaus ("o ar galima vietoje to daryti x") leistini tik gavus išreikštinai įvardintą leidimą.
+*  Projektas yra komandinis, komandą sudaro nuo 2 iki 4 žmonių. Komandos gali keistis projekto bėgyje. Jos sudėtis yra fiksuojama einamojo etapo pateikimo momentu, t.y. gale, kuomet yra submittinamas parašytas kodas ir pateikiamos visos ataskaitos.
+*  Projekto dalykinė sritis gali būti bet kokia - dėl jos reikia nuspręsti komandoje. Projektas daromas trimis etapais: I) HTML+CSS II) C modulis/biblioteka III) projekto finalizacija. Kiekvieno iš etapų orientacinė trukmė - 2-3 savaitės.
+*  Kiekvienas projekto etapas pabaigiamas a) komandos vardu įkeliant rezultatus į VU VMA ir b) kiekvienam komandos nariui individualiai užpildant ataskaitą, nurodant darbo trukmę, atliktus darbus, bei siūlomą tarpusavio pasidalinimą komandai skirtais balais. Abu elementai privalomi kiekviename etape, norint už tą etapą gauti taškus. Taip pat bus galima individualiai peržiūrėti bei įvertinti projektus - visa tai vyks(ta) VU VMA.
+*  Jeigu kyla kažkoks klausimas arba konfliktas, kurio negalite išspręsti komandos rėmuose - rašote man.
+*  Klausimai (susiję su tvarka) gali būti užduodami komentaruose apačioje.
+
+Projekto metu yra šešios rolės (tai ne pareigos, bet atliekamas darbas, t.y. tas pats žmogus gali turėti kelias roles arba jas keisti, t.y. rolė nėra fiksuota, o traktuotina kaip veiklos pobūdis, kuris atsispindi ataskaitoje ir atspindi darbų pasiskirstymą):
+*  ARCHITECT: architektas (liet.) iš esmės atsakingas už projekto/programos struktūrą ir skeletą, pasirinktas technologijas ir esminius sprendimus, nusako iš kokių dalių susideda programa, kas su kuo "kalbasi", kokie yra komponentai, o žemesniame lygyje - už naudojamų funkcijų prototipų aprašymus bei interfeisų derinimą
+*  BUILDER: vystytojas (liet.) iš esmės stato/gamina kodą, kuris suteikia numatytą funkcionalumą, nepriklausomai nuo kalbos ar srities (tiek HTML, tiek CSS, tiek C, ir pan.)
+*  CRITIC: kritikas (liet.) atsakingas už sprendimo kokybę, t.y. tiek jį testuoja/peržiūri, tiek žaidžia "velnio advokatą" padėdamas komandai numatyti bėdas ir jų išvengti
+*  DESIGNER: dizaineris (liet.) yra atsakingas už vartotojo sąsają, pranešimus vartotojui, rašybos klaidas, o taip pat - už HTML puslapio išdėstymą, stilių bei išvaizdą bendrąja prasme
+*  EXHIBITOR: leidėjas (liet.) atsakingas už galutinį apiforminimą bei jo pristatymą, būtent jis įkelia projektą į VU VMA komandos vardu, užtikrina, kad jis pasileidžia, jei reikia - pateikia dokumentacijas, diegimo paketus ir kt.
+*  FACILITATOR: koordinatorius (liet.) atsakingas už komandos globą, už komunikaciją komandos viduje ir išorėje, už sprendimų (meetinguose ir kt.) užfiksavimą (užrašymą), už konfliktų sprendimą, motyvaciją, terminus, ir bendrai - už komandos darbo planavimą
+*  Būtent pagal su šiomis rolėmis susijusias veiklas bus prašoma užpildyti projekto etapo ataskaitas. Koordinatoriui tai planavimo/organizavimo veiklos; Architektui - analizė/projektavimas; Kritikui - testavimas/peržiūros; Dizaineriui - UI projektavimas/stilizavimas/derinimas; Vystytojui - kodavimo veikla; Leidėjui - su pateikimu/pristatymu susijusios veiklos. Veiklos, kurių neišeina priskirti kažkuriai iš šių kategorijų, priskiriamos kategorijai "kita".
