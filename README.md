@@ -1,5 +1,20 @@
 # ProProProjektas
 
+***1 Etapas***  
+Pirmame etape jums reikia:
+*  a) susiburti į 2-4 žmonių komandą (komentarai prie šito posto naudojami komandų registracijai bei su tuo susijusiai komunikacijai, žr. žemiau), sugalvoti jos pavadinimą, o taip pat - susitarti dėl to, kokį projektą norėtumėte daryti (tą darant komandos gali skilti arba jungtis, o pavadinimas gali atspindėti/identifikuoti tiek komandą, tiek daromą projektą)
+*  b) pasiskirstyti rolėmis/darbais, susiplanuoti darbus (fasilitatorius), susitarti dėl techninio sprendimo (architektas) bei susitarti dėl galutinio puslapio vaizdo (dizaineris), o tada koduoti (vystytojai)
+*  c) etapo pabaigoje, kuris yra gruodžio17 d. 23:59 (turite trijų savaičių sprintą), jums reikia turėti sukurtą HTML puslapį, paviešintą internete (gali būti jūsų MIF vartotojui skirtas www katalogas), įskaitant jo stilių (CSS) bei pavyzdinius/testinius duomenis, kuriuos bus galima naudoti vėliau plėtojant projektą.
+*  d) etapui pasibaigus, reikės kad leidėjas įkeltų kodą (ir su juo susijusius dalykus) į VU VMA, o kiekvienas komandos narys - užpildytų ataskaitą (kiek minučių praleido kiekvienoje iš rolių; kokius darbus nuveikė; kaip siūlo skirstyti komandai skirtą balų skaičių)
+
+  **Komandos registracija:**  
+*  a) registraciją atlieka FASILITATORIUS, parašydamas komentarą su komandos pavadinimu, ir tada arba komentare, arba reply užtag'indamas komandos narius, kurie turi atsiliepti, tokiu būdu patvirtindami savo įtraukimą į komandą
+*  b) dalyviai, kurie dar neturi komandos arba rolės, gali daryti reply į mano komentarą "ieškau komandos", įvardindami kad ieško, taip pat gali siūlytis būtent kažkokioje rolėje etc
+*  c) komandos, kurioms trūksta dalyvio, fasilitatorius gali daryti reply į mano komentarą "ieškome komandos papildymo", įvardindami kad ir ko būtent ieško, gali nurodyti projektą ir pan.
+*  d) komandos, kurios nėra suburtos, gali būti buriamos rašant ne reply, bet naują komentarą su "ieškau komandos", į kurį reply daro norintys joje būti. Tokiu atveju parašęs žmogus laikomas fasilitatoriumi, ir eigoje turi redaguoti savo komentarą (žr. punktą a) arba jį ištrina, ir galiausiai susibūrusią komandą nauju komentaru užregistruoja naujas komandos fasilitatorius.
+Klausimus dėl pirmo etapo kviečiu užduoti komentaruose.
+
+**Kiti dalykėliai**  
 **Irmanto taisyklės:**
 *  Turite galimybę rengti komandinius (negali būti solo) projektus. Tiems kas nuspręs dalyvauti, gręsia (vidutiniu atveju) +1 balas (iki 2 balų, priklausomai nuo nuopelnų) prie galutinio pažymio (nors vykdome per dirbtuves, tai atskiras su kitomis kurso dalimis nesusijęs klausimas)
 *  Projekto esmė: vartotojas pateikia duomenis C programai -> C programa sukuria internetinį puslapį/svetainę (HTML+CSS) -> ji patalpinama kažkur internete
