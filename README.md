@@ -1,5 +1,6 @@
 # ProProProjektas
 ![alt text](https://github.com/user5427/Ai-nezinau-/blob/main/Screenshot%202023-11-30%20201443.png)
+
 ***1 Etapas***  
 Pirmame etape jums reikia:
 *  a) susiburti į 2-4 žmonių komandą (komentarai prie šito posto naudojami komandų registracijai bei su tuo susijusiai komunikacijai, žr. žemiau), sugalvoti jos pavadinimą, o taip pat - susitarti dėl to, kokį projektą norėtumėte daryti (tą darant komandos gali skilti arba jungtis, o pavadinimas gali atspindėti/identifikuoti tiek komandą, tiek daromą projektą)
@@ -33,3 +34,5 @@ Projekto metu yra šešios rolės (tai ne pareigos, bet atliekamas darbas, t.y. 
 *  EXHIBITOR: leidėjas (liet.) atsakingas už galutinį apiforminimą bei jo pristatymą, būtent jis įkelia projektą į VU VMA komandos vardu, užtikrina, kad jis pasileidžia, jei reikia - pateikia dokumentacijas, diegimo paketus ir kt.
 *  FACILITATOR: koordinatorius (liet.) atsakingas už komandos globą, už komunikaciją komandos viduje ir išorėje, už sprendimų (meetinguose ir kt.) užfiksavimą (užrašymą), už konfliktų sprendimą, motyvaciją, terminus, ir bendrai - už komandos darbo planavimą
 *  Būtent pagal su šiomis rolėmis susijusias veiklas bus prašoma užpildyti projekto etapo ataskaitas. Koordinatoriui tai planavimo/organizavimo veiklos; Architektui - analizė/projektavimas; Kritikui - testavimas/peržiūros; Dizaineriui - UI projektavimas/stilizavimas/derinimas; Vystytojui - kodavimo veikla; Leidėjui - su pateikimu/pristatymu susijusios veiklos. Veiklos, kurių neišeina priskirti kažkuriai iš šių kategorijų, priskiriamos kategorijai "kita".
+
+You did it. You read all of it! https://imgur.com/a/c79Uuii
