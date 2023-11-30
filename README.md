@@ -1,5 +1,5 @@
 # ProProProjektas
-
+![alt text](https://github.com/user5427/Ai-nezinau-/blob/main/Screenshot%202023-11-30%20201443.png)
 ***1 Etapas***  
 Pirmame etape jums reikia:
 *  a) susiburti į 2-4 žmonių komandą (komentarai prie šito posto naudojami komandų registracijai bei su tuo susijusiai komunikacijai, žr. žemiau), sugalvoti jos pavadinimą, o taip pat - susitarti dėl to, kokį projektą norėtumėte daryti (tą darant komandos gali skilti arba jungtis, o pavadinimas gali atspindėti/identifikuoti tiek komandą, tiek daromą projektą)
