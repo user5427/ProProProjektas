@@ -35,4 +35,35 @@ Projekto metu yra šešios rolės (tai ne pareigos, bet atliekamas darbas, t.y. 
 *  FACILITATOR: koordinatorius (liet.) atsakingas už komandos globą, už komunikaciją komandos viduje ir išorėje, už sprendimų (meetinguose ir kt.) užfiksavimą (užrašymą), už konfliktų sprendimą, motyvaciją, terminus, ir bendrai - už komandos darbo planavimą
 *  Būtent pagal su šiomis rolėmis susijusias veiklas bus prašoma užpildyti projekto etapo ataskaitas. Koordinatoriui tai planavimo/organizavimo veiklos; Architektui - analizė/projektavimas; Kritikui - testavimas/peržiūros; Dizaineriui - UI projektavimas/stilizavimas/derinimas; Vystytojui - kodavimo veikla; Leidėjui - su pateikimu/pristatymu susijusios veiklos. Veiklos, kurių neišeina priskirti kažkuriai iš šių kategorijų, priskiriamos kategorijai "kita".
 
+
+**Dar info:**
+
+PROJEKTAI
+
+Primenu kvietimą daryti projektus (paskutinis kurso mėnuo). Visa informacija (3 postai) yra FB grupėje prilipdyti viršuje. Jei norite dalyvauti - užregistruokite komanda ta tvarka, kuri aprašyta.
+
+Pirmas etapas - iki gruodžio 17 d. Įkeliame svetainę (sukuriama ranka) bei PDF'ą, kuriame laisva forma yra pateiktas komandos aprašymas (pavadinimas, nariai, rolės/atsakomybės), projekto aprašymas (trumpai nusakytas svetainės tikslas/esmė), architektūra (aukšto lygio komponentinė schema, pasirinkti tools&technologies), taip pat workload'as pirmam etapui (kiek komandos narys skyrė kokiai funkcijai/rolei, bei suma visai komandai)
+
+Antras etapas - iki sausio 7 d. Įkeliame modulį (skirtas naudotis jūsų bei kitoms komandoms; už panaudojimą skiriami taškai) bei atnaujinamas (papildytinas) PDF'as (pagrinde antro etapo workload'as bei projekto komponentų detalizacija - šiuo atveju, sukurto modelio aprašymas/turinys/nuoroda/etc)
+
+Trečias etapas - iki sausio 25 d. Įkeliame visą projektą (apimantį kodo failus, pavyzdžius, dokumentaciją, instrukcijas - bet ką, ką komanda laiko projekto dalimi) bei atnaujinamas PDF'as (prisideda trečio etapo workload'as bei viso projekto workload'as - kiekvienam komandos nariui bei visai komandai bendrai).
+
+Klausimai/atsakymai:
+
+Q: ar tai reiškia kad reikia sukurti turinio valdymo sistemos variantą?
+A: ne. Reikalavimai formuluojami kaip "galutiniame variante pateikiama C programa, kuri pagal vartotojo įvestį (įskaitant faile) pateikia (output) svetainę (minimaliu atveju - HTML+CSS), skirtą publikuoti internete. Techniškai, po šią formuluote palenda ir pvz. C programa, sugeneruojanti web page'ą su hello world, atspausdintu pasirinktame stiliuje; ir pvz. asmeninė vizitinė kortelė, užpildoma duomenimis pagal įvedimą; ir pvz. blog'as, kuris papildomas nauju įrašu programos pagalba; ir t.t. ir pan. Projekte privalo būti C kalba - nes kursas yra apie tai ir to reikia kad pateisinti projekto vietą kurse. Šito reikalavimo kontekste C programa viso labo atspausdina norimą turinį į tekstinį failą (kuris happens to be pvz. HTML kodą turintis failas ir todėl tinka kaip puslapis kurį galima matyti browseryje). Kito apribojimo nėra, išskyrus tai, kad puslapis turi apibrėžti ir turinį/struktūrą (eg. HTML), ir išvaizdą (eg. CSS). Niekas netrukdo pridėti papildomų elementų - Javascript, DB, etc - jei tik yra noro ir žinios bei laikas leidžia. Niekas nedraudžia ir kurti turinio valdymo sistemą - tačiau pagalvokite ar verta tai daryti, turint omenyje kad laiko nėra daug, o greta programavimo dar yra kiti dalykai, be to reikia valgyti, miegoti ir t.t. Geri projektai yra tokie, kuri turi "versiją minimum" kurią paskui galima plėsti įvairiais feature'sais, jeigu aplinkybės leidžia.
+
+Q: ar tai reiškia, kad projektus reikia daryti per atostogas ir sesiją?
+A: ne. Terminai yra nurodyti lanksčiai, kad galėtumėte laiką dėliotis pagal save. Terminas reiškia iki kada privalu pateikti nurodytus failus, tačiau tai nereiškia, kad negalima to padaryti anksčiau. Galim viską padaryti eg. per vieną savaitę - tiktai tuo atveju griežtai atskirkite kur pirmas etapas, kur antras ir t.t., nes ataskaitas pildyti reikia ne pagal kalendorines savaites, bet pagal etapus. Komanda turėtų įvardinti ir nuspręsti, kad dabar baigiame šitą etapą ir pereiname prie kito - ir atitinkamai startuoja ir naujas laiko skaičiavimas etc. Primenu, jog už etapą atsiskaitoma nuo komados (exhibitor'ius upload'ina pateikimą VU VMA) bei individualiai (kiekvienas komandos narys užpildo ataskaitą, ir jei neužpildo - vertinimas jam 0 taškų). Terminai svarbūs ir dėl to, kad bus galimybė peržiūrėti kitų komandų projektus - tai bus skatinama (individualiais taškais) ir nepriklausys nuo to ar jūs asmeniškai pateikėte projektą.
+
+Q: kiek taškų galima gauti už projektus?
+A: tipiniu atveju vienas žmogus gauna iki 1-2 balų, t.y. griežtai ne daugiau nei 2, bet gali būti daugiau nei 1 priklausomai nuo modulio panaudojimo (taškus gauna ir jo kūrėjų komanda, ir panaudotojų), nuo kitų projektų peržiūrų bei nuo bonusų. Taškai atskiri, t.y. nesusiję su ankstesnėmis dirbtuvių užduotimis, mokomosiomis užduotimis, namų darbais ir kt. Primenu ir tai, kad norint dalyvauti galima daryti  dalį etapų (pvz. dalyvauti tik antrame etape ir sukurti modulį; arba tik pirmame ir sukurti svetainę; arba pirmame ir trečiame sukuriant programą, bet praleidžiant modulį ir t.t. - taškai koreguojasi atitinkamai). Primenu ir tai, kad projektai yra galimybė rinktis, o ne prievolė - t.y. rekomenduojama žmonėms kurie nori koduoti, o ne eg. spręsti uždavinius ir puikų vienkartinį pasirodymą (per egzaminą) stabilizuoti (apsidrausti) darbu per semestrą.
+
+Q: o kaip atrodo ataskaitos?
+A: komandinį pateikimą galite apžiūrėti bet kada - rasite VU VMA. Ten pat rasite ir nuorodas į individualias ataskaitas. Galite jas apžiūrėti bet kada, bet būtų gerai kad jei norite testuoti - apžiūrėtumėte per šią savaitę - tiesiog nespauskite mygtuko "submit".
+
+Anything else?
+
+Oh and perskaitėt? Uždėkite patiktuką, kuris reiškia, kad arba viskas aišku, arba paklausiate to kas ne.
+
 You did it. You read all of it! https://imgur.com/a/c79Uuii
