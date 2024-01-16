@@ -1,13 +1,29 @@
-#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "stringparser.h"
-
-static char status = 0; //0 - expected title, 1 - expected left side 2 - expected right side
-static char right = 0;  //kurioj pusej rasyt
-static char clDiv = 0;  //ar reikia uzdaryti buvusi div
 LIST* init(){
 	return NULL;
+}
+static int IDCOUNTER = 0;
+
+unsigned char toDec(char* hex){
+    char first = *hex, second = *(hex + 1);
+    unsigned char color = 0;
+
+    if(first >= '0' && first <= '9'){
+        first -= '0';
+    }else if(first >= 'A' && first <= 'F'){
+        first -= 'A';
+        first += 10;
+    }
+    if(second >= '0' && second <= '9'){
+        second -= '0';
+    }else if(second >= 'A' && second <= 'F'){
+        second -= 'A';
+        second += 10;
+    }
+    color = first * 16 + second;
+    return color;
 }
 
 LIST* add(HTML data, LIST** LIS){
@@ -25,7 +41,6 @@ LIST* add(HTML data, LIST** LIS){
 	tmp -> next = l;
 	return *LIS;
 }
-
 HTML pop(LIST** LIS){
 	LIST* l = *LIS;
     if(l == NULL){
@@ -37,47 +52,14 @@ HTML pop(LIST** LIS){
     free(l);
 	return ret;
 }
-char* myConcat(char* start, char* end, int canFreeStart, int canFreeEnd){
-    int len;
-    int len1;
-    if(start == NULL){
-        len1 = 0;
-    }else{
-        len1 = strlen(start);
-    }
-    if(end == NULL){
-        len = 0;
-    }else{
-        len = strlen(end);
-    }
-    //assume \0 term
-    char *newString = calloc(len + len1 + 1, sizeof(char));
-    int offset = 0;
-    for(int i = 0; i < len1; i++){
-        newString[offset] = start[i];
-        offset++;
-    }
-    for(int i = 0; i < len; i++){
-        newString[offset] = end[i];
-        offset++;
-    }
-    newString[offset] = '\0';
-    if(start != NULL && canFreeStart){
-        free(start);
-    }
-    if(end != NULL && canFreeEnd){
-        free(end);
-    }
-    return newString;
-}
 void parseString(char* line, LIST** list){
 	int lineLength = strlen(line);
 	char first = *line;
 	char *linecopy;
-	int offset = 0;
+    char *optionlessKeys[3] = {"Bold", "Italic", "Underline"};
+    char *Keys[3] = {"Color", "Font", "Size"};
 	HTML data = {0};
     data.BULLETPOINT = 1;
-
 	if(first == '!'){
 		if(*(line + 1) != '\n'){
 			data.TITLE = 1;
@@ -88,99 +70,76 @@ void parseString(char* line, LIST** list){
         data.BULLETPOINT = 0;
         line++;
     }
-
-
     first = *(line);
     if(first == '['){
-        //kolkas ignoruosiu tuos Bold, Italic, etc. nzn ar isvis juos intepretuot tbh
-        while(*(line + offset) != '['){
-            offset++;
+        int repeat = 1;
+        while(repeat){
+            char* pos = line + 1;
+            while(*pos != ',' || *pos != ']'){
+                pos++;
+            }
+            if(*pos == ']'){
+                repeat = 0;
+            }
+            int diff = pos - line - 1;
+            char* key = calloc(diff + 1, sizeof(char));
+            strncpy(key, line + 1, diff);
+            // zinau kad cia ultra fugly bet whatever tingisi galvot pries diskreciaja
+            if(!strcmp(key, optionlessKeys[0])){
+                data.BOLD = 1;
+            }
+            if(!strcmp(key, optionlessKeys[1])){
+                data.UNDERLINE = 1;
+            }
+            if(!strcmp(key, optionlessKeys[2])){
+                data.ITALIC = 1;
+            }
+            if(!strncmp(key, Keys[0], 5)){//Color
+                char *equals= line + 6;
+                if(*equals != '='){
+                    exit(-3);
+                }
+                equals++;
+                //wack kodas
+                char *color = calloc(diff - 5, sizeof(char));
+                strncpy(color, equals, diff - 6);
+                data.RED = toDec(color);
+                data.GREEN = toDec(color + 2);
+                data.BLUE = toDec(color + 4);
+                free(color);
+            }else if(!strncmp(key, Keys[1], 4)){//Font
+                char *equals= line + 5;
+                if(*equals != '='){
+                    exit(-3);
+                }
+                equals++;
+                char *font = calloc(diff - 4, sizeof(char));
+                strncpy(font, equals, diff - 5);
+                data.FONT = font;
+            }else if(!strncmp(key, Keys[2], 4)){//size
+                char *equals= line + 5;
+                if(*equals != '='){
+                    exit(-3);
+                }
+                equals++;
+                char *size = calloc(diff - 4, sizeof(char));
+                strncpy(size, equals, diff - 5);
+                char *iter = size;
+                unsigned char tsize = 0;
+                while(*iter != '\0'){
+                    tsize *= 10;
+                    tsize += *iter - '0';
+                    //reiketu error checkinimo bet whatever, del manes gali crashint jei kazkas nemoka skaiciaus parasyt
+                }
+                data.TEXTSIZE = tsize;
+            }
+            line = pos + 1;
         }
-        line+=offset;
-        line++;
-
     }
     linecopy = calloc(lineLength + 1, sizeof(char));
     strcpy(linecopy, line);
 	data.Str = linecopy;
-
+    data.ID = IDCOUNTER;
+    IDCOUNTER++;
 	add(data, list);
-}
-
-char* dumpHTML(LIST* list){
-    char *rez = NULL;
-    while(list != NULL) {
-        HTML data = pop(&list);
-        int runNext = 1;
-        if (status == 0 && runNext) {
-            rez = myConcat(rez, "<header><h1 id=\"name\">", 1, 0);
-            rez = myConcat(rez, data.Str, 1, 0);
-            rez = myConcat(rez, "</h1></header>", 1, 0);
-            rez = myConcat(rez, "<div id=\"content-block\"><div id=\"left-block\">", 1, 0);
-            status++;
-            runNext = 0;
-        }
-        if(*data.Str == '!'){
-            if(status == 2){
-                rez = myConcat(rez, "</ul>", 1, 0);
-                status = 1;
-            }
-            rez = myConcat(rez, "</div>", 1, 0);
-            if(clDiv){
-                rez = myConcat(rez, "</div>", 1, 0);
-            }
-            rez = myConcat(rez, "<div id=\"right-block\">", 1, 0);
-            runNext = 0;
-            clDiv = 0;
-            right = 1;
-        }
-        if(data.BULLETPOINT && runNext && status != 2){
-            rez = myConcat(rez, "<ul>", 1, 0);
-            status = 2;
-            rez = myConcat(rez, "<li>", 1, 0);
-            rez = myConcat(rez, data.Str, 1, 1);
-            rez = myConcat(rez, "</li>", 1, 0);
-            runNext = 0;
-        }
-        if(!data.BULLETPOINT && runNext && status == 2){
-            rez = myConcat(rez, "</ul>", 1, 0);
-            status = 1;
-        }
-        if(data.BULLETPOINT && runNext && status == 2){
-            rez = myConcat(rez, "<li>", 1, 0);
-            rez = myConcat(rez, data.Str, 1, 1);
-            rez = myConcat(rez, "</li>", 1, 0);
-            runNext = 0;
-        }
-        if(data.TITLE && runNext){
-            if(clDiv == 1){
-                rez = myConcat(rez, "</div>", 1, 0);
-            }
-            if(right == 1){
-                rez = myConcat(rez, "<div class=\"right-block-item\">", 1, 0);
-            }else{
-                rez = myConcat(rez, "<div class=\"left-block-item\">", 1, 0);
-            }
-            clDiv = 1;
-            rez = myConcat(rez, "<h3 class=\"content-title\">", 1, 0);
-            rez = myConcat(rez, data.Str, 1, 1);
-            rez = myConcat(rez, "</h3>", 1, 0);
-            runNext = 0;
-        }
-        if(runNext){
-            rez = myConcat(rez, "<p>", 1, 0);
-            rez = myConcat(rez, data.Str, 1, 1);
-            rez = myConcat(rez, "</p>", 1, 0);
-            runNext = 0;
-        }
-    }
-    if(status == 2){
-        rez = myConcat(rez, "</ul>", 1, 0);
-    }
-    if(clDiv){
-        rez = myConcat(rez, "</div>", 1, 0);
-    }
-    rez = myConcat(rez, "</div>", 1, 0);
-    rez = myConcat(rez, "</div>", 1, 0);
-    return rez;
 }

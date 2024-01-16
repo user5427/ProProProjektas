@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include "stringparser.h"
+
+
+//TODO tmp fixas kad kompileris nerektu
+void perduoti(FILE*, LIST**){}
+//
+
 int main(int argc, char** argv){
 	LIST* l = init();
 	if(argc == 1 || argc > 3){
@@ -23,8 +29,6 @@ int main(int argc, char** argv){
 	while((read = getline(&line, &len, input)) != -1){
 		parseString(line, &l);
 	}
-	fputs("</!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"stylesheet\" href=\"style.css\"><title>Portfolio</title></head><body>", output);
-	fputs(dumpHTML(l), output);
-	fputs("</body></html>", output);
+	perduoti(output, &l);
 	return 0;
 }
