@@ -8,6 +8,8 @@ typedef struct {
 	unsigned char TITLE:1;
 	unsigned char BULLETPOINT:1;
 	unsigned char UNUSED:3;
+	unsigned char SEGMENT_NUMBER:4;
+	unsigned char TOTAL_SEGMENTS:4;
 	unsigned char TEXTSIZE;
 	unsigned char RED, GREEN, BLUE;
 	char* FONT;
