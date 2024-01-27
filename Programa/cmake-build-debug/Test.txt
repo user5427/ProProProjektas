@@ -11,7 +11,7 @@ Pomegis 1
 Pomegis 2
 Pomegis 3
 !
-![Bold]Apie mane
+![Italic]Apie mane
 @Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
 @Atin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered th
 ![Bold] Issilavinimas

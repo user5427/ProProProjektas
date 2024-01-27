@@ -6,27 +6,38 @@
 
 void perduoti(char* output_file, LIST* data_list){
     HtmlPage *htmlpage = initHtmlPage(output_file);
-    HtmlElement *htmlElement = NULL;
-    char itemize = 0;
-    while(data_list != NULL){
-        /* DO YOUR THING HERE */
 
-        printf("\nBOLD: %d", data_list->data.BOLD);
-        printf("\nITALIC: %d", data_list->data.ITALIC);
-        printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
-        printf("\nTITLE: %d", data_list->data.TITLE);
-        printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
+    char list_status = 0;
+    while(data_list != NULL){
+
+        //if (data_list->data.TITLE)
+
+        //if (data_list->data.BOLD)
+        //    addStyle(htmlElement, "strong", 0);
+        //printf("\nBOLD: %d", data_list->data.BOLD);
+        //printf("\nITALIC: %d", data_list->data.ITALIC);
+        //printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
+        //printf("\nTITLE: %d", data_list->data.TITLE);
+        //printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
         //printf("\nUNUSED: %d", data_list->data.UNUSED);
         //printf("\nSEGMENT_NUMBER: %d", data_list->data.SEGMENT_NUMBER);
         //printf("\nTOTAL_SEGMENTS: %d", data_list->data.TOTAL_SEGMENTS);
-        printf("\nTEXTSIZE: %d", data_list->data.TEXTSIZE);
-        printf("\nFONT: %s", data_list->data.FONT);
+        //printf("\nTEXTSIZE: %d", data_list->data.TEXTSIZE);
+        //printf("\nFONT: %s", data_list->data.FONT);
         //printf("\nID: %d", data_list->data.ID);
         printf("\nStr: %s", data_list->data.Str);
-        /* END DOING YOUR THINGs*/
+
         data_list = data_list->next;
+
     }
+    HtmlElement *htmlElement = initHtmlElement("p");
+    htmlElement->text = "HALLO";
     addBodyElement(htmlpage, &htmlElement);
+    htmlElement = NULL;
+    htmlElement = initHtmlElement("p");
+    htmlElement->text = "HELLO";
+    addBodyElement(htmlpage, &htmlElement);
+
     createHtmlPage(&htmlpage);
 }
 //
