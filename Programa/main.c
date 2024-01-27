@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include "stringparser.h"
-#include "htmlpage.h"
+#include "Functions/stringparser.h"
+#include "Functions/getline.h"
+#include "Functions/htmlpage.h"
+
 
 //TODO tmp fixas kad kompileris nerektu
 void perduoti(FILE*, LIST**){

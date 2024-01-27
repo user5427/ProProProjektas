@@ -4,5 +4,7 @@ project(Programa C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Programa main.c
-        stringparser.c
-        htmlpage.c)
+        Functions/stringparser.c
+        Functions/htmlpage.c
+        Functions/getline.h
+        Functions/getline.c)
