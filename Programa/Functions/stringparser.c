@@ -133,6 +133,12 @@ void parseString(char* line, LIST** list){
                 data.TEXTSIZE = tsize;
             }
         }
+        char *nl = line;
+        while(*nl != ']'){
+            nl++;
+        }
+        nl++;
+        line = nl;
     }
     linecopy = calloc(lineLength + 1, sizeof(char));
     strcpy(linecopy, line);
