@@ -6,27 +6,69 @@
 
 void perduoti(char* output_file, LIST* data_list){
     HtmlPage *htmlpage = initHtmlPage(output_file);
-    HtmlElement *htmlElement = NULL;
-    char itemize = 0;
-    while(data_list != NULL){
-        /* DO YOUR THING HERE */
 
-        printf("\nBOLD: %d", data_list->data.BOLD);
+    char list_status = 0;
+    while(data_list != NULL){
+        HtmlElement *htmlElement = initHtmlElement("p");
+        //if (data_list->data.TITLE)
+
+        //
+        //printf("\nBOLD: %d", data_list->data.BOLD);
+
+        printf("\nstr: %s", data_list->data.Str);
         printf("\nITALIC: %d", data_list->data.ITALIC);
         printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
-        printf("\nTITLE: %d", data_list->data.TITLE);
-        printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
+        //printf("\nTITLE: %d", data_list->data.TITLE);
+        //printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
         //printf("\nUNUSED: %d", data_list->data.UNUSED);
         //printf("\nSEGMENT_NUMBER: %d", data_list->data.SEGMENT_NUMBER);
         //printf("\nTOTAL_SEGMENTS: %d", data_list->data.TOTAL_SEGMENTS);
-        printf("\nTEXTSIZE: %d", data_list->data.TEXTSIZE);
-        printf("\nFONT: %s", data_list->data.FONT);
+        //printf("\nTEXTSIZE: %d", data_list->data.TEXTSIZE);
+        //printf("\nFONT: %s", data_list->data.FONT);
         //printf("\nID: %d", data_list->data.ID);
-        printf("\nStr: %s", data_list->data.Str);
-        /* END DOING YOUR THINGs*/
+        HtmlElement *modifiers = NULL;
+
+        if (data_list->data.BOLD){
+            HtmlElement *bald = initHtmlElement("strong");
+            bald->text = data_list->data.Str;
+            modifiers = bald;
+        }
+
+        if (data_list->data.ITALIC){
+            HtmlElement *italics = initHtmlElement("i");
+            if (modifiers == NULL){
+                italics->text = data_list->data.Str;
+                modifiers = italics;
+            } else {
+                addChild(italics, &modifiers);
+                modifiers = italics;
+            }
+        }
+
+        if (data_list->data.UNDERLINE){
+            HtmlElement *underline = initHtmlElement("u");
+            if (modifiers == NULL){
+                underline->text = data_list->data.Str;
+                modifiers = underline;
+            } else {
+                addChild(underline, &modifiers);
+                modifiers = underline;
+            }
+        }
+
+        if (modifiers == NULL) {
+            htmlElement->text = data_list->data.Str;
+        } else {
+            addChild(htmlElement, &modifiers);
+        }
+
+
+        addBodyElement(htmlpage, &htmlElement);
         data_list = data_list->next;
     }
-    addBodyElement(htmlpage, &htmlElement);
+
+
+
     createHtmlPage(&htmlpage);
 }
 //
