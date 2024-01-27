@@ -8,18 +8,18 @@
 void perduoti(FILE* output_file, LIST* data_list){
     while(data_list != NULL){
         /* DO YOUR THING HERE */
-        printf("\nBOLD %d:", data_list->data.BOLD);
-        printf("\nITALIC %d:", data_list->data.ITALIC);
-        printf("\nUNDERLINE %d:", data_list->data.UNDERLINE);
-        printf("\nTITLE %d:", data_list->data.TITLE);
-        printf("\nBULLETPOINT %d:", data_list->data.BULLETPOINT);
-        printf("\nUNUSED %d:", data_list->data.UNUSED);
-        printf("\nSEGMENT_NUMBER %d:", data_list->data.SEGMENT_NUMBER);
-        printf("\nTOTAL_SEGMENTS %d:", data_list->data.TOTAL_SEGMENTS);
-        printf("\nTEXTSIZE %d:", data_list->data.TEXTSIZE);
-        printf("\nFONT %s:", data_list->data.FONT);
-        printf("\nID %d:", data_list->data.ID);
-        printf("\nStr %s:", data_list->data.Str);
+        printf("\nBOLD: %d", data_list->data.BOLD);
+        printf("\nITALIC: %d", data_list->data.ITALIC);
+        printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
+        printf("\nTITLE: %d", data_list->data.TITLE);
+        printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
+        printf("\nUNUSED: %d", data_list->data.UNUSED);
+        printf("\nSEGMENT_NUMBER: %d", data_list->data.SEGMENT_NUMBER);
+        printf("\nTOTAL_SEGMENTS: %d", data_list->data.TOTAL_SEGMENTS);
+        printf("\nTEXTSIZE: %d", data_list->data.TEXTSIZE);
+        printf("\nFONT: %s", data_list->data.FONT);
+        printf("\nID: %d", data_list->data.ID);
+        printf("\nStr: %s", data_list->data.Str);
         /* END DOING YOUR THINGs*/
         data_list = data_list->next;
     }
@@ -27,10 +27,12 @@ void perduoti(FILE* output_file, LIST* data_list){
 //
 
 int main(int argc, char** argv){
+    /*
     printf("\nargc %d: ", argc);
     printf("\nargv[0]: %s", argv[0]);
     printf("\nargv[1]: %s", argv[1]);
     printf("\nargv[2]: %s", argv[2]);
+     */
     LIST* l = init();
 	if(argc == 1 || argc > 3){
 		printf("\nKlaidinga įvestis, įveskite duomenų failo pavadinima ir, jei norite pageidaujamą išvesties failo pavadinimą\n");
