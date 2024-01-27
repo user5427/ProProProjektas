@@ -27,18 +27,19 @@ unsigned char toDec(char* hex){
 }
 
 LIST* add(HTML data, LIST** LIS){
-	LIST* l = calloc(1, sizeof(LIST));
-	l->data = data;
-	l->next = NULL;
+	LIST* node = calloc(1, sizeof(LIST));
+    node->data = data;
+    node->next = NULL;
     if(*LIS == NULL){
-        (*LIS) = l;
-        return l;
+        (*LIS) = node;
+        return node;
     }
+
 	LIST* tmp = *LIS;
 	while(tmp -> next != NULL){
 		tmp = tmp -> next;
 	}
-	tmp -> next = l;
+	tmp -> next = node;
 	return *LIS;
 }
 HTML pop(LIST** LIS){
@@ -52,12 +53,11 @@ HTML pop(LIST** LIS){
     free(l);
 	return ret;
 }
+
 void parseString(char* line, LIST** list){
 	int lineLength = strlen(line);
 	char first = *line;
 	char *linecopy;
-    char *optionlessKeys[3] = {"Bold", "Italic", "Underline"};
-    char *Keys[3] = {"Color", "Font", "Size"};
 	HTML data = {0};
     data.BULLETPOINT = 1;
 	if(first == '!'){
@@ -73,28 +73,32 @@ void parseString(char* line, LIST** list){
     first = *(line);
     if(first == '['){
         int repeat = 1;
+        char* pos = line + 1;
         while(repeat){
-            char* pos = line + 1;
-            while(*pos != ',' || *pos != ']'){
-                pos++;
+            long long diff;
+            while((*pos) != ','){
+                if((*pos) == ']' || line == pos){
+                    repeat = 0;
+                    break;
+                }
+                diff = pos - line;
+                ++pos;
             }
-            if(*pos == ']'){
-                repeat = 0;
-            }
-            int diff = pos - line - 1;
+
+
             char* key = calloc(diff + 1, sizeof(char));
             strncpy(key, line + 1, diff);
-            // zinau kad cia ultra fugly bet whatever tingisi galvot pries diskreciaja
-            if(!strcmp(key, optionlessKeys[0])){
+
+
+            if(!strcmp(key, "Bold"))
                 data.BOLD = 1;
-            }
-            if(!strcmp(key, optionlessKeys[1])){
+            if(!strcmp(key, "Italic"))
                 data.UNDERLINE = 1;
-            }
-            if(!strcmp(key, optionlessKeys[2])){
+            if(!strcmp(key, "Underline"))
                 data.ITALIC = 1;
-            }
-            if(!strncmp(key, Keys[0], 5)){//Color
+
+
+            if(!strncmp(key, "Color", 5)){//Color
                 char *equals= line + 6;
                 if(*equals != '='){
                     exit(-3);
@@ -107,7 +111,7 @@ void parseString(char* line, LIST** list){
                 data.GREEN = toDec(color + 2);
                 data.BLUE = toDec(color + 4);
                 free(color);
-            }else if(!strncmp(key, Keys[1], 4)){//Font
+            }else if(!strncmp(key, "Font", 4)){//Font
                 char *equals= line + 5;
                 if(*equals != '='){
                     exit(-3);
@@ -116,7 +120,7 @@ void parseString(char* line, LIST** list){
                 char *font = calloc(diff - 4, sizeof(char));
                 strncpy(font, equals, diff - 5);
                 data.FONT = font;
-            }else if(!strncmp(key, Keys[2], 4)){//size
+            }else if(!strncmp(key, "Size", 4)){//size
                 char *equals= line + 5;
                 if(*equals != '='){
                     exit(-3);
@@ -133,7 +137,6 @@ void parseString(char* line, LIST** list){
                 }
                 data.TEXTSIZE = tsize;
             }
-            line = pos + 1;
         }
     }
     linecopy = calloc(lineLength + 1, sizeof(char));
