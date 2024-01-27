@@ -81,23 +81,18 @@ void parseString(char* line, LIST** list){
                     repeat = 0;
                     break;
                 }
-                diff = pos - line;
                 ++pos;
             }
-
-
+            diff = pos - line;
+            --diff;
             char* key = calloc(diff + 1, sizeof(char));
             strncpy(key, line + 1, diff);
-
-
             if(!strcmp(key, "Bold"))
                 data.BOLD = 1;
             if(!strcmp(key, "Italic"))
                 data.UNDERLINE = 1;
             if(!strcmp(key, "Underline"))
                 data.ITALIC = 1;
-
-
             if(!strncmp(key, "Color", 5)){//Color
                 char *equals= line + 6;
                 if(*equals != '='){
