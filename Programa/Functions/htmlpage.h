@@ -46,8 +46,8 @@ typedef struct {
 HtmlPage* initHtmlPage(char* fileName);
 HtmlElement* addBodyElement(HtmlPage* htmlPage, HtmlElement** htmlElement);
 HtmlElement* addHeadElement(HtmlPage* htmlPage, HtmlElement** htmlElement);
-void _writeHtmlElement(HtmlPage* htmlPage, HtmlElement* htmlElement, unsigned short depth); //TODO ar reikia vartotojui sitos funkcijos?
-void _freeHtmlPage(HtmlPage** htmlPage);
+//void _writeHtmlElement(HtmlPage* htmlPage, HtmlElement* htmlElement, unsigned short depth); //TODO ar reikia vartotojui sitos funkcijos? no, the user is the developer btw
+//void _freeHtmlPage(HtmlPage** htmlPage); FIXME probably aint needed for developer, right?
 void createHtmlPage(HtmlPage** htmlPage);
 
 #endif //PROPROPRO_MODULIS_HTMLPAGE_H
