@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include "stringparser.h"
-
+#include "htmlpage.h"
 
 //TODO tmp fixas kad kompileris nerektu
-void perduoti(FILE*, LIST**){}
+void perduoti(FILE*, LIST**){
+
+
+
+}
 //
 
 int main(int argc, char** argv){
