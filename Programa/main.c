@@ -4,9 +4,8 @@
 #include "Functions/htmlpage.h"
 
 
-//TODO tmp fixas kad kompileris nerektu
 void perduoti(char* output_file, LIST* data_list){
-    void *htmlpage = initHtmlPage(output_file);
+    HtmlPage *htmlpage = initHtmlPage(output_file);
     while(data_list != NULL){
         /* DO YOUR THING HERE */
         printf("\nBOLD: %d", data_list->data.BOLD);
@@ -45,7 +44,7 @@ int main(int argc, char** argv){
 	if(argc == 3){
 		output = argv[2];
 	}else{
-		output = fopen("Output.html", "w");
+		output = "Output.html";
 	}
 	if(input == NULL){//output nebus NULL tai nzn gal veliau patikrinsiu ar pasibaigia .html or smthn xdd
 		printf("\nFAILED TO OPEN INPUT FILE!");
