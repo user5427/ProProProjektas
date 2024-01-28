@@ -154,7 +154,6 @@ void _freeHtmlElement(HtmlElement **htmlElement) {
 
     for (int i = 0; i < (*htmlElement)->_childrenCount; i++) {
         HtmlElement *child = *((*htmlElement)->_children + i);
-
         _freeHtmlElement(&child);
     }
 
@@ -248,35 +247,27 @@ void _writeHtmlElement(HtmlPage *htmlPage, HtmlElement *htmlElement, unsigned sh
     FILE *htmlFile = htmlPage->_htmlFile;
 
     // tarpu pridejimas
-    for (int i = 0; i < depth; i++) {
+    for (int i = 0; i < depth; i++){
         fprintf(htmlFile, "  ");
-        printf("  ");
     }
-
     // elemento html tago atspausdinimas
     fprintf(htmlFile, "<%s", htmlElement->_htmlTag);
-    printf("<%s", htmlElement->_htmlTag);
 
     // papildomi attributes, kurie eina i tago vidu (id, class)
     if (htmlElement->id != NULL) {
         fprintf(htmlFile, " id=\"%s\"", htmlElement->id);
         fprintf(htmlFile, " class=\"%s\"", htmlElement->class);
-        printf(" id=\"%s\"", htmlElement->id);
-        printf(" class=\"%s\"", htmlElement->class);
     }
     if (htmlElement->_style != NULL) {
         fprintf(htmlFile, " style=\"%s\"", htmlElement->_style);
         printf(" style=\"%s\"", htmlElement->_style);
     }
     fprintf(htmlFile, ">");
-    printf(">");
 
     //CIA DALYKAI AKTUALUS TIK <HEAD> ELEMENTUI
     if (htmlPage->_htmlHead == htmlElement && htmlPage->cssFileName != NULL) {
         fprintf(htmlFile, "\n  <link rel=\"stylesheet\" href=\"%s\">", htmlPage->cssFileName);
-        printf("\n  <link rel=\"stylesheet\" href=\"%s\">", htmlPage->cssFileName);
     }
-
     // teksto, jei jis yra atspausdinimas
     if (htmlElement->text != NULL) {
         int i = 0;
@@ -286,12 +277,10 @@ void _writeHtmlElement(HtmlPage *htmlPage, HtmlElement *htmlElement, unsigned sh
         htmlElement->text[i] = '\0';
 
         fprintf(htmlFile, "%s", htmlElement->text);
-        printf("%s", htmlElement->text);
     }
 
     if (htmlElement->_childrenCount != 0){
         fprintf(htmlFile, "\n");
-        printf("\n");
     }
 
     for (int i = 0; i < htmlElement->_childrenCount; ++i) {
@@ -303,12 +292,13 @@ void _writeHtmlElement(HtmlPage *htmlPage, HtmlElement *htmlElement, unsigned sh
     if (htmlElement->_childrenCount != 0){
         for (int i = 0; i < depth; i++) {
             fprintf(htmlFile, "  ");
-            printf("  ");
         }
     }
-
     fprintf(htmlFile, "</%s>\n", htmlElement->_htmlTag);
-    printf("</%s>\n", htmlElement->_htmlTag);
+
+    if (htmlElement->_childrenCount != 0){
+
+    }
 }
 
 void _freeHtmlPage(HtmlPage **htmlPage) {
