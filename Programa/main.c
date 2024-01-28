@@ -8,24 +8,32 @@ void perduoti(char* output_file, LIST* data_list){
     HtmlPage *htmlpage = initHtmlPage(output_file);
 
     char list_status = 0;
+    HtmlElement *list;
     while(data_list != NULL){
-        HtmlElement *htmlElement = initHtmlElement("p");
-        //if (data_list->data.TITLE)
-
-        //
-        //printf("\nBOLD: %d", data_list->data.BOLD);
-
         printf("\nstr: %s", data_list->data.Str);
         printf("\nITALIC: %d", data_list->data.ITALIC);
         printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
-        //printf("\nTITLE: %d", data_list->data.TITLE);
-        //printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
-        //printf("\nUNUSED: %d", data_list->data.UNUSED);
-        //printf("\nSEGMENT_NUMBER: %d", data_list->data.SEGMENT_NUMBER);
-        //printf("\nTOTAL_SEGMENTS: %d", data_list->data.TOTAL_SEGMENTS);
-        //printf("\nTEXTSIZE: %d", data_list->data.TEXTSIZE);
-        //printf("\nFONT: %s", data_list->data.FONT);
-        //printf("\nID: %d", data_list->data.ID);
+        printf("\nTITLE: %d", data_list->data.TITLE);
+        printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
+
+        HtmlElement *htmlElement = initHtmlElement("p");
+        if (!data_list->data.BULLETPOINT){
+            htmlElement = initHtmlElement("p");
+        } else {
+            htmlElement = initHtmlElement("li");
+        }
+
+        if (list_status == 0 && data_list->data.BULLETPOINT == 1){
+            list_status = 1;
+            list = initHtmlElement("ul");
+        }
+
+        if (list_status == 1 && data_list->data.BULLETPOINT == 0){
+            list_status = 0;
+            addBodyElement(htmlpage, &list);
+        }
+
+
         HtmlElement *modifiers = NULL;
 
         if (data_list->data.BOLD){
