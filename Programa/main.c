@@ -10,38 +10,35 @@ void perduoti(char* output_file, LIST* data_list){
     char list_status = 0;
     HtmlElement *list;
     while(data_list != NULL){
-        printf("\nstr: %s", data_list->data.Str);
-        printf("\nITALIC: %d", data_list->data.ITALIC);
-        printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
-        printf("\nTITLE: %d", data_list->data.TITLE);
-        printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
+        //printf("\nstr: %s", data_list->data.Str);
+        //printf("\nITALIC: %d", data_list->data.ITALIC);
+        //printf("\nUNDERLINE: %d", data_list->data.UNDERLINE);
+        //printf("\nTITLE: %d", data_list->data.TITLE);
+        //printf("\nBULLETPOINT: %d", data_list->data.BULLETPOINT);
 
         HtmlElement *htmlElement = initHtmlElement("p");
         if (!data_list->data.BULLETPOINT){
             htmlElement = initHtmlElement("p");
-        } else {
+        }
+        else {
             htmlElement = initHtmlElement("li");
         }
-
         if (list_status == 0 && data_list->data.BULLETPOINT == 1){
             list_status = 1;
             list = initHtmlElement("ul");
         }
-
-        if (list_status == 1 && data_list->data.BULLETPOINT == 0){
+        else if (list_status == 1 && data_list->data.BULLETPOINT == 0){
             list_status = 0;
             addBodyElement(htmlpage, &list);
         }
 
 
         HtmlElement *modifiers = NULL;
-
         if (data_list->data.BOLD){
             HtmlElement *bald = initHtmlElement("strong");
             bald->text = data_list->data.Str;
             modifiers = bald;
         }
-
         if (data_list->data.ITALIC){
             HtmlElement *italics = initHtmlElement("i");
             if (modifiers == NULL){
@@ -52,7 +49,6 @@ void perduoti(char* output_file, LIST* data_list){
                 modifiers = italics;
             }
         }
-
         if (data_list->data.UNDERLINE){
             HtmlElement *underline = initHtmlElement("u");
             if (modifiers == NULL){
@@ -70,12 +66,16 @@ void perduoti(char* output_file, LIST* data_list){
             addChild(htmlElement, &modifiers);
         }
 
-
-        addBodyElement(htmlpage, &htmlElement);
+        if (!data_list->data.BULLETPOINT){
+            addBodyElement(htmlpage, &htmlElement);
+        } else {
+            addChild(list, &htmlElement);
+        }
         data_list = data_list->next;
     }
 
-
+    if (list_status)
+        addBodyElement(htmlpage, &list);
 
     createHtmlPage(&htmlpage);
 }
