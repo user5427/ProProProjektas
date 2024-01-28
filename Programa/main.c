@@ -10,9 +10,6 @@ void perduoti(char* output_file, LIST* data_list){
     char list_status = 0;
     HtmlElement *list;
     while(data_list != NULL){
-        printf("\nTITLE: %d", data_list->data.TITLE);
-
-
         HtmlElement *htmlElement = initHtmlElement("p");
         if (!data_list->data.BULLETPOINT){
             htmlElement = initHtmlElement("p");
