@@ -15,4 +15,5 @@ You can also choose output file name as the second argument.
 ## Test file
 Test file is located in `cmake-build-debug` folder. Test file is named as `Test.txt`.
 
-
+## Input data formatting
+For more information about the format, read `C projekto ideja.pdf` located in the folder `programos_aprasas_ir_headeriai`
