@@ -9,8 +9,8 @@ The output file will be named `Output.html`.
 You can provide your own input file name for the argument.
 You can also choose output file name as the second argument.
 ### Argument examples:
-- `main.c Test.txt`
-- `main.c Input.txt Out.html`
+- `Programa.exe Test.txt`
+- `Programa.exe Input.txt Out.html`
 
 ## Test file
 Test file is located in `cmake-build-debug` folder. Test file is named as `Test.txt`.
