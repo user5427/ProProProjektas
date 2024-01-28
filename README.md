@@ -3,7 +3,7 @@
 - The program files are located in `programa` folder.
 - The program works with C11 standart.
 ### Simple instructions:
-To start the program, open console in `programa` folder and run the program `main.c` with argument `Test.txt`.
+To start the program, open console in `programa\cmake-build-debug` folder and run the program `Programa.exe` with argument `Test.txt`.
 The output file will be named `Output.html`.
 ### A little less simple instructions:
 You can provide your own input file name for the argument.
