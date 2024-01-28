@@ -90,9 +90,9 @@ void parseString(char* line, LIST** list){
             if(!strcmp(key, "Bold"))
                 data.BOLD = 1;
             if(!strcmp(key, "Italic"))
-                data.UNDERLINE = 1;
-            if(!strcmp(key, "Underline"))
                 data.ITALIC = 1;
+            if(!strcmp(key, "Underline"))
+                data.UNDERLINE = 1;
             if(!strncmp(key, "Color", 5)){//Color
                 char *equals= line + 6;
                 if(*equals != '='){

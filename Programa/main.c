@@ -56,6 +56,16 @@ void perduoti(char* output_file, LIST* data_list){
                 modifiers = underline;
             }
         }
+        if (data_list->data.TITLE){
+            HtmlElement *title = initHtmlElement("h1");
+            if (modifiers == NULL){
+                title->text = data_list->data.Str;
+                modifiers = title;
+            } else {
+                addChild(title, &modifiers);
+                modifiers = title;
+            }
+        }
 
         if (modifiers == NULL) {
             htmlElement->text = data_list->data.Str;

@@ -2,7 +2,7 @@ VARDAS PAVARDE
 ![Bold]Kontaktai
 @varas.pavarde@stud.vu.lt
 @+370xxxxxxxx
-![Bold]Asmenines savybes
+![Underline]Asmenines savybes
 Asmenine savybe 1
 Asmenine savybe 2
 Asmenine savybe 3
